@@ -6,13 +6,13 @@
 </head>
 <body>
 	<header>
-		<h1>Admin NBA</h1>
+		<h1>Admin  des Equipes</h1>
 		<nav></nav>
 	</header>
 	
 	<section id="contenu">
-		<header><h2>Ajouter une equipe</h2></header>
-		<form method="post" action="action-ajouter-equipe.php">
+		<header><h2>Ajouter une equipe </h2></header>
+		<form method="post" action="liste-equipe-admin.php">
 		
 			<div>
 				<label for="nom">Nom</label>
@@ -20,7 +20,7 @@
 			</div>
 		
 			<div>
-				<label for="type">Creation</label>
+				<label for="creation">Creation</label>
 				<input type="text" name="creation" id="creation"/>
 			</div>
 			
@@ -29,7 +29,7 @@
 				<textarea name="resume" id="resume"></textarea>
 			</div>
 			
-			<input type="submit"/>
+			<input type="submit" name="action-ajouter-equipe" value="Ajouter"/>
 			
 		</form>
 	</section>

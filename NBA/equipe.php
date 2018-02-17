@@ -32,6 +32,7 @@
 		foreach($equipe as  $ligne){
 			echo "<div>";
 			echo "<a>". $ligne['nom'] . ": ". $ligne['resume'];
+			
 			echo "</div>";
 			
 		}

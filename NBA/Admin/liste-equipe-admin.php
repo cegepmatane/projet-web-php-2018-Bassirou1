@@ -1,5 +1,9 @@
+<?php 
+	include "action-ajouter-equipe.php";
+	include "action-effacer-equipe.php";
+?>
 <?php
-	
+	if(!empty($_POST['action-ajouter-equipe']))
 	require_once "basededonnes.php";
 	
 	$requeteListeEquipe = $basededonnees->prepare("SELECT * FROM equipe");
@@ -39,8 +43,8 @@
 			
 		Modifier
 		</a>
-		<a href="supprimer-equipe.php?equipe=<?=$equipe['idEquipe']?>">
-		Supprimer
+		<a href="effacer-equipe.php?equipe=<?=$equipe['idEquipe']?>">
+		Effacer
 		</a>
 	</div>
 	<?php
