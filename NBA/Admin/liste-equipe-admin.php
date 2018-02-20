@@ -1,19 +1,10 @@
 <?php 
+
 	include "action-ajouter-equipe.php";
 	include "action-effacer-equipe.php";
-?>
-<?php
-	if(!empty($_POST['action-ajouter-equipe']))
-	require_once "basededonnes.php";
-	
-	$requeteListeEquipe = $basededonnees->prepare("SELECT * FROM equipe");
-	$requeteListeEquipe->execute();
-	
-	$listeEquipe = $requeteListeEquipe->fetchAll();
-	
-
-	
-	
+	include_once "../accesseur/equipeDAO.php";
+	$equipeDao = new EquipeDAO();
+	$listeEquipe = $equipeDao->lireListe();	
 ?>
 <!doctype html>
 <html lang="fr">

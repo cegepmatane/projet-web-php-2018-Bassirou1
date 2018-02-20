@@ -2,17 +2,9 @@
 
 	$idEquipe = $_GET["equipe"];
 
-	require_once "basededonnes.php";
-		
-	$LIRE_EQUIPE = "SELECT * FROM equipe WHERE idEquipe = $idEquipe";
-	//echo $LIRE_EQUIPE;
-	
-	$requeteLireEquipe = $basededonnees->prepare($LIRE_EQUIPE);
-	$requeteLireEquipe->execute();
-	$equipe = $requeteLireEquipe->fetch();
-	
-	//print_r($equipe);
-	//var_dump($equipe);
+	include_once "../accesseur/EquipeDAO.php";
+	$equipeDao = new EquipeDAO();
+	$equipe = $equipeDao->lireEquipe($idEquipe);
 ?>
 <!doctype html>
 <html lang="fr">
