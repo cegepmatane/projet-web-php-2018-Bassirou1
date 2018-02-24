@@ -1,9 +1,7 @@
-<?php 
-	include "action-modifier-equipe.php";
-?>
+
 <?php
-	
-	$idEquipe = $_GET["equipe"];
+	include "action-modifier-equipe.php";
+	$idEquipe = filter_var($_GET["equipe"], FILTER_SANITIZE_NUMBER_INT);
 	
 	include_once "../accesseur/EquipeDAO.php";
 	$equipeDao = new EquipeDAO();

@@ -1,34 +1,44 @@
-<?php
-	
-	require_once "basededonnes.php";
-	
-	$requeteListeEquipe = $basededonnees->prepare("SELECT * FROM equipe");
-	$requeteListeEquipe->execute();
-	
-	$listeEquipe = $requeteListeEquipe->fetchAll();
-	
-
-	
-	
+<?php 	
+	include "accesseur/EquipeDAO.php";
+	$equipeDao = new EquipeDAO();
+	$listeEquipe = $equipeDao->lireListe();
+	//exit(0);
 ?>
 <!doctype html>
 <html lang="fr">
 <head>
-	<meta charset="utf-8">	
-	<title>NBA</title>
+	<meta charset="utf-8">
+	<title></title>
 </head>
 <body>
-<h1>Liste des Equipes</h1>
-
-	<?php
+	<header>
+		<h1></h1>
+		<nav></nav>
+	</header>
 	
-		foreach($listeEquipe as  $ligne){
-			echo "<div>";
-			echo "<a href='equipe.php?equipe=".$ligne['idEquipe'] ."'>".$ligne['nom']."</a>";
-			echo "</div>";
-			
+	<section id="contenu">
+		<header><h2></h2></header>
+	
+	
+		<?php
+		foreach($listeEquipe as $equipe)
+		{
+		?>
+		<div>
+			<div>
+				<a href="equipe.php?equipe=<?=$equipe['idEquipe']?>">
+					<?=$equipe['nom']?>
+				
+				</a>
+				
+			</div>
+		</div>
+		<?php
 		}
-
-	?>
+		?>
+	
+	</section>
+	
+	<footer><span id="signature"></span></footer>
 </body>
 </html>

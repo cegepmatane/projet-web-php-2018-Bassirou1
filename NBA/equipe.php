@@ -1,15 +1,11 @@
 <?php
-	require_once "basededonnes.php";
-	
-	$LIRE_EQUIPE = "SELECT * FROM equipe WHERE idEquipe = '". $_GET['equipe']."'";
-	
-	$requeteLireEquipe = $basededonnees->prepare($LIRE_EQUIPE);
-	$requeteLireEquipe->execute();
-	$equipe = $requeteLireEquipe->fetchAll();
 
-	//print_r($equipe);
+	$idEquipe = filter_var($_GET["equipe"], FILTER_SANITIZE_NUMBER_INT);
 	
-	
+	include "accesseur/EquipeDAO.php";
+	$equipeDao = new EquipeDAO();
+	$equipe = $equipeDao->lireEquipe($idEquipe);
+
 ?>
 
 <!doctype html>
@@ -22,31 +18,22 @@
 	<header>
 		<h1>NBA</h1>
 		<nav></nav>
-			
 	</header>
+	
 	<section id="contenu">
-	<header><h2>Equipe:
-	</h2>
-	<?php
-	
-		foreach($equipe as  $ligne){
-			echo "<div>";
-			echo "<a>". $ligne['nom'] . ": ". $ligne['resume'];
+		<header><h2>Equipe : <?=$equipe['nom']?></h2></header>
+		
+		<div>
+			Creation : <?=$equipe['creation']?>
+		</div>
+		
+		<div>
+			Resume : <?=$equipe['resume']?>
+		</div>
 			
-			echo "</div>";
-			
-		}
-
-	?>
-	
-	
-	</header>
-	
-	
-	
-	
-	
+		
 	</section>
 	
+	<footer><span id="signature"></span></footer>
 </body>
 </html>

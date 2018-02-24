@@ -1,6 +1,6 @@
 <?php
 
-	$idEquipe = $_GET["equipe"];
+	$idEquipe = filter_var($_GET["equipe"],FILTER_SANITIZE_NUMBER_INT);
 
 	include_once "../accesseur/EquipeDAO.php";
 	$equipeDao = new EquipeDAO();
