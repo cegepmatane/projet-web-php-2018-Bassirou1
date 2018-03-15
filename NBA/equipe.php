@@ -5,6 +5,10 @@
 	include "accesseur/EquipeDAO.php";
 	$equipeDao = new EquipeDAO();
 	$equipe = $equipeDao->lireEquipe($idEquipe);
+	
+	include "accesseur/JoueurDAO.php";
+	$joueurDao = new JoueurDAO();
+	$listeJoueur = $joueurDao->listerJoueurDequipe($idEquipe);	
 
 ?>
 
@@ -31,6 +35,24 @@
 			Resume : <?=$equipe['resume']?>
 		</div>
 			
+		<section>
+			<h3>Liste des joueurs </h3>
+			<?php 
+				//print_r($listeJoueur);
+				foreach($listeJoueur as $joueur)
+				{
+				?>
+				<div>
+					<h4><a href="joueur.php?joueur=<?=$joueur['idJoueur']?>"> Nom : <?=$joueur['nom']?></a></h4>
+					<p><?=$joueur['biographie']?></p>
+					
+				</div>
+				<?php
+				}
+			?>
+		</section>
+	
+		<nav><a href="liste-equipe.php">Revenir à la liste des equipes</a></nav>
 		
 	</section>
 	

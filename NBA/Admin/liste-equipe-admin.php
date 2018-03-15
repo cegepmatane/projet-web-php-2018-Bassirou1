@@ -1,7 +1,7 @@
 <?php 
 
-	include "action-ajouter-equipe.php";
-	include "action-effacer-equipe.php";
+	include "action/action-ajouter-equipe.php";
+	include "action/action-effacer-equipe.php";
 	include_once "../accesseur/equipeDAO.php";
 	$equipeDao = new EquipeDAO();
 	$listeEquipe = $equipeDao->lireListe();	
