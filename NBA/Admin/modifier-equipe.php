@@ -6,6 +6,10 @@
 	include_once "../accesseur/EquipeDAO.php";
 	$equipeDao = new EquipeDAO();
 	$equipe = $equipeDao->lireEquipe($idEquipe);
+	
+	include "../accesseur/JoueurDAO.php";
+	$joueurDao = new JoueurDAO();
+	$listeJoueur = $joueurDao->listerJoueurDequipe($idEquipe);		
 ?>
 <!doctype html>
 <html lang="fr">
@@ -21,7 +25,7 @@
 	
 	<section id="contenu">
 		<header><h2>Modifier une equipe</h2></header>
-		<form method="post" action="modifier-equipe.php?equipe=<?=$equipe['idEquipe']?>">
+		<form method="post" action="liste-equipe-admin.php?equipe=<?=$equipe['idEquipe']?>">
 			
 			<input type="hidden" name="id" value="<?=$equipe['idEquipe']?>"/>
 
@@ -43,8 +47,26 @@
 			<input type="submit" name="action-modifier-equipe" value="Enregistrer"/>
 			
 		</form>
+		<nav><a href="liste-equipe.php">Revenir à la liste des equipes</a></nav>
 	</section>
+	<section>
+		<a href="ajouter-joueur.php?equipe=<?=$equipe['idEquipe']?>">Ajouter des Joeurs</a>
+		<?php 
+			foreach($listeJoueur as $joueur)
+			{
+				//print_r($joueur);
+			?>
+			<div>
+				Nom <?=$joueur['nom']?> 
+				<a href="modifier-joueur.php?joueur=<?=$joueur['idJoueur']?>">Modifier</a> 
+				<a href="effacer-joueur.php?joueur=<?=$joueur['idJoueur']?>">Effacer</a>
+			</div>
+			<?php
+			}
+		
+		?>
 	
+	</section>
 	<footer><span id="signature"></span></footer>
 </body>
 </html>
