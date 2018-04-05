@@ -1,0 +1,36 @@
+		
+			*
+			{
+				font-size:Arial;
+			}
+		
+			fieldset
+			{
+				background-color:#c4d5f2;
+				border:solid 1px #333333;
+				border-radius:2em;
+				margin:3em;
+				width:50%;
+			}
+			fieldset legend
+			{
+				border-radius:2em;
+				background-color:#333333;
+				color:white; font-weight:bold;
+				padding:1em;
+			}
+			
+			label
+			{
+				display:inline-block;
+				width:6em;
+				
+			}
+			
+			#texte-conditions
+			{
+				width: 900px;
+				height: 500px;
+				
+			}
+			
