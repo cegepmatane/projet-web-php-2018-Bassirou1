@@ -1,5 +1,6 @@
 <?php 
-	include "basededonnes.php";	
+
+	include"basededonnees.php";	
 	class EquipeDAO
 	{		
 		

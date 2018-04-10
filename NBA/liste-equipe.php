@@ -1,8 +1,10 @@
-<?php 	
+<?php 
+	
 	include "accesseur/EquipeDAO.php";
+	//exit(0);
 	$equipeDao = new EquipeDAO();
 	$listeEquipe = $equipeDao->lireListe();
-	//exit(0);
+	
 ?>
 <!doctype html>
 <html lang="fr">

@@ -1,5 +1,5 @@
 <?php
-	include_once "basededonnes.php";
+	include_once "basededonnees.php";
 	class JoueurDAO
 	{
 	
