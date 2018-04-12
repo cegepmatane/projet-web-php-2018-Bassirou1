@@ -15,10 +15,12 @@ if(!empty($_POST['action-modifier-joueur']))
 	echo "<pre>";
 	print_r($_FILES);
 	echo "<pre>";
-	$repertoire_illustration = "/projet-web-php-2018-Bassirou1.git/NBA/illustration/";
+	$repertoire_illustration = "/nba/illustration/";
 	$source = $_FILES["illustration"]["tmp_name"];
 	$destination = $_SERVER["DOCUMENT_ROOT"] . $repertoire_illustration . $_FILES["illustration"]["name"];
-		
+	
+	$nomImage = $_FILES['illustration']['name'];
+	$idJoueur = $_GET['joueur'];
 
 
 ?>
@@ -34,8 +36,13 @@ if(move_uploaded_file($source,$destination))
 {
 	echo "Votre envoi de fichier a bien fonctionné";
 	?>
-	<img src="illustration/<?=$_FILES['illustration']['name']?>" alt=""/>
+	<img src="illustration/<?=$nomImage?>" alt=""/>
+	
 	<?php
+	include_once "../../accesseur/JoueurDAO.php";
+	$joueurDao = new JoueurDAO();
+	
+	$joueurDao->sauvegarderPhoto($idJoueur,$nomImage);
 }
 else
 {
@@ -44,6 +51,7 @@ else
 }
 
 ?>
+
 
 
 

@@ -54,6 +54,16 @@
 			$requeteEffacerJoueur->execute();
 			
 		}
+		
+		function sauvegarderPhoto($idJoueur,$nomImage)
+		{
+			$SAUVEGARDER_PHOTO = "UPDATE joueur SET photo ='".$nomImage."' WHERE idJoueur ='".$idJoueur."'";
+			echo $SAUVEGARDER_PHOTO;
+			global $basededonnees;
+			$requeteSauvegarderPhoto = $basededonnees->prepare($SAUVEGARDER_PHOTO);
+		    $requeteSauvegarderPhoto->execute();
+			
+		}
 	
 	
 	

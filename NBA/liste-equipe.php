@@ -38,7 +38,8 @@
 		<?php
 		}
 		?>
-	
+	<a href="inscription.php">S'inscrire</a> 
+	<a href="connexion.php"> Me connecter</a>
 	</section>
 	
 	<footer><span id="signature"></span></footer>

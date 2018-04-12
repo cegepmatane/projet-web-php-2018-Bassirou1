@@ -5,7 +5,7 @@
 	include "accesseur/JoueurDAO.php";
 	$joueurDao = new JoueurDAO();
 	$joueur = $joueurDao->lireJoueur($idJoueur);
-	//print_r($joueur);
+	print_r($joueur);
 ?>
 <!doctype html>
 <html lang="fr">
