@@ -12,6 +12,15 @@
 			$listeEquipe = $requeteListeEquipe->fetchAll();
 			return $listeEquipe;
 		}
+			
+		function rechercherEquipe($terme)
+		{
+			global $basededonnees;
+			$requeteListeEquipe = $basededonnees->prepare("SELECT * FROM equipe");
+			$requeteListeEquipe->execute();
+			$listeEquipe = $requeteListeEquipe->fetchAll();
+			return $listeEquipe;
+		}
 		
 		function lireEquipe($id)
 		{

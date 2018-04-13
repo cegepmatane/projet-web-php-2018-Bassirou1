@@ -1,15 +1,27 @@
 <?php 
-	//if(!empty($_POST['action-rechercher']))
+
+		include "accesseur/EquipeDAO.php";
 	
-		//print_r($_POST);
-		
-		
-	
-	
-	include "accesseur/EquipeDAO.php";
-	//exit(0);
 	$equipeDao = new EquipeDAO();
-	$listeEquipe = $equipeDao->lireListe();
+	if(!empty($_POST['action-rechercher']))
+	{
+		//print_r($_POST);
+		$recherche = $_POST['recherche'];
+		//echo $recherche;
+		$listeEquipe = $equipeDao->rechercherEquipe($recherche);
+			
+	}
+	else
+	{
+		$listeEquipe = $equipeDao->lireListe();
+	}
+		
+		
+		
+	
+	
+
+	
 	
 ?>
 <!doctype html>
