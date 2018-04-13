@@ -16,7 +16,7 @@
 		function rechercherEquipe($terme)
 		{
 			global $basededonnees;
-			$requeteListeEquipe = $basededonnees->prepare("SELECT * FROM equipe");
+			$requeteListeEquipe = $basededonnees->prepare("SELECT * FROM equipe WHERE nom LIKE '%$terme%' OR resume LIKE '%$terme%' OR creation LIKE '%$terme%';");
 			$requeteListeEquipe->execute();
 			$listeEquipe = $requeteListeEquipe->fetchAll();
 			return $listeEquipe;
