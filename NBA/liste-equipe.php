@@ -1,4 +1,10 @@
 <?php 
+	//if(!empty($_POST['action-rechercher']))
+	
+		//print_r($_POST);
+		
+		
+	
 	
 	include "accesseur/EquipeDAO.php";
 	//exit(0);
@@ -21,6 +27,17 @@
 	<section id="contenu">
 		<header><h2></h2></header>
 	
+	<section id="section-recherche">
+		<form method="post" action="" id="formulaire-recherche">
+			
+			<input type="text" name="recherche" id="recherche"/>
+			<input type="submit" value="Rechercher"  name="action-rechercher"/>
+		
+		</form>
+	
+	
+	
+	</section>
 	
 		<?php
 		foreach($listeEquipe as $equipe)
