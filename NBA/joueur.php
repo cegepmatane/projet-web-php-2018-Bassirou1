@@ -20,9 +20,13 @@
 	</header>
 	
 	<section id="contenu">
-		<header><h2>Joueur <?=$joueur['nom']?></h2></header>
+		<header><h2>Joueur : <?=$joueur['nom']?></h2></header>
 
 		<p><?=$joueur['biographie']?></p>
+		
+			<img src="<?php echo $joueur['photo'];?>"/>
+		
+		
 		
 		
 		
