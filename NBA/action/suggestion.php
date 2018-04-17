@@ -9,29 +9,17 @@
 	 ** view-source:http://localhost/autocomplete/suggestion.php?recherche=A
 	 **/
 
+	//print_r($_GET);
+	$recherche = filter_var($_GET['recherche'], FILTER_SANITIZE_STRING);
+	
 	// SECTION PREPARATION DES DONNEES
 	
-	// Se connecter a la base de donnees
-	
-	
-	// Preparer un SQL en utilisant le parametre recupere dans $_GET
-	// SELECT champ FROM table WHERE champ LIKE '$recherche%'
-	
-	
-	// Executer la requete et recuperer tous les resultats avec fetchAll() dans une $listeChoix
-
+	include "../accesseur/EquipeDAO.php";
+	$equipeDAO = new EquipeDAO();
+	$suggestions = $equipeDAO->rechercherSuggestions($recherche);
+	print_r($suggestions);
 ?>
 
 <ul id="suggestions">
-<?php
 
-	// SECTION AFFICHAGE
-	
-	// foreach sur les donnees recues et generer un li par item
-?>
-
-	<li><a href="#" onclick="afficherSuggestionChoisie('Alerte')">Alerte</a></li>
-	<li><a href="#" onclick="afficherSuggestionChoisie('Abeilles')">Abeilles</a></li>
-	<li><a href="#" onclick="afficherSuggestionChoisie('Accent')">Accent</a></li>
-	<li><a href="#" onclick="afficherSuggestionChoisie('Avanc&eacute;e')">Avanc&eacute;e</a></li>
 </ul>

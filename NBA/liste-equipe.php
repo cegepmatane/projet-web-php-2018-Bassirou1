@@ -33,13 +33,14 @@
 		{
 			console.log('#recherche.onkeyup');
 			recherche = document.querySelector("#recherche").value;
-			console.log('recherche='+recherche);
+			parametre = 'recherche='+recherche;
+			console.log();
 			
 			// ETAPE 2 - REQUETE
 			ajax = new Ajax();
 			//console.log(ajax);
 			url = 'http://142.44.162.203/nba/action/suggestion.php';
-			ajax.executer("GET", url, "", recevoirLesSuggestions);
+			ajax.executer("GET", url, parametre, recevoirLesSuggestions);
 			
 			
 		}

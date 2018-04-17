@@ -87,13 +87,15 @@
 		function rechercherSuggestions($recherche)
 		{
 			global $basededonnees;
-			$SQL_RECHERCHER_SUGGESTIONS = "SELECT nom as terme FROM equipe WHERE nom LIKE '%$recherche%' UNION SELECT type as terme FROM equipe WHERE type LIKE '%$recherche%' UNION SELECT resume as terme FROM equipe WHERE resume LIKE '%$recherche%'";
+			$SQL_RECHERCHER_SUGGESTIONS = "SELECT nom as terme FROM equipe WHERE nom LIKE '%$recherche%'";
 			echo $SQL_RECHERCHER_SUGGESTIONS ;
 			$requetRechercherSuggestions = $basededonnees->prepare($SQL_RECHERCHER_SUGGESTIONS);
-			$requetRechercherSuggestions->execute;
-			$suggestions = $requetRechercherSuggestions->fetchAll();
+			
+			//$requeteRechercherSuggestions->bindParam(':recherche', $recherche, PDO::PARAM_STR);
+			//$requetRechercherSuggestions->execute;
+			//$suggestions = $requetRechercherSuggestions->fetchAll();
 			//print_r($suggestions);
-			return $suggestions;
+			//return $suggestions;
 			
 		}
 	}
