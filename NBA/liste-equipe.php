@@ -3,10 +3,11 @@
 		include "accesseur/EquipeDAO.php";
 	
 	$equipeDao = new EquipeDAO();
+	$recherche = "";
 	if(!empty($_POST['action-rechercher']))
 	{
 		//print_r($_POST);
-		$recherche = $_POST['recherche'];
+		$recherche = filter_var($_POST['recherche'],FILTER_SANITIZE_STRING); 
 		//echo $recherche;
 		$listeEquipe = $equipeDao->rechercherEquipe($recherche);
 			
@@ -16,10 +17,6 @@
 		$listeEquipe = $equipeDao->lireListe();
 	}
 		
-		
-		
-	
-	
 
 	
 	
@@ -29,6 +26,50 @@
 <head>
 	<meta charset="utf-8">
 	<title></title>
+	<script type="text/javascript" src="lib/Ajax.js"></script>
+	<script type="text/javascript">
+		// ETAPE 1 - EVENEMENT
+		function rechercherLesSuggestions()
+		{
+			console.log('#recherche.onkeyup');
+			recherche = document.querySelector("#recherche").value;
+			console.log('recherche='+recherche);
+			
+			// ETAPE 2 - REQUETE
+			ajax = new Ajax();
+			//console.log(ajax);
+			url = 'http://142.44.162.203/nba/action/suggestion.php';
+			ajax.executer("GET", url, "", recevoirLesSuggestions);
+			
+			
+		}
+		
+		// ETAPE 3 - RECEPTION (traitement)
+		function recevoirLesSuggestions(ajax)
+		{
+			suggestions = ajax.responseText;
+			console.log('suggestions='+suggestions);
+			
+			// ETAPE 4 - AFFICHAGE (retroaction)
+			document.querySelector("#boite-suggestions").style.display = "block";
+			document.querySelector("#boite-suggestions").innerHTML = suggestions;
+			
+		}
+		
+	</script>
+	<style>
+	#section-recherche
+	{
+		position:relative;
+	}
+	#boite-suggestions
+	{
+		display:none;
+		border:solid 2px #ceaf37;
+		background-color:#f7e9b4;
+		position:absolute;
+	}
+	</style>
 </head>
 <body>
 	<header>
@@ -42,11 +83,11 @@
 	<section id="section-recherche">
 		<form method="post" action="" id="formulaire-recherche">
 			
-			<input type="text" name="recherche" id="recherche" value="<?=$recherche?>"/>
+			<input type="text" name="recherche" id="recherche" value="<?=$recherche?>" onkeyup="rechercherLesSuggestions()"/>
 			<input type="submit" value="Rechercher"  name="action-rechercher"/>
 		
 		</form>
-	
+		<div id="boite-suggestions"></div>
 	
 	
 	</section>
