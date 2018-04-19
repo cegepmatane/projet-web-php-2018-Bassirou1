@@ -21,5 +21,16 @@
 ?>
 
 <ul id="suggestions">
+<?php
 
+	// SECTION AFFICHAGE
+	
+	// foreach sur les donnees recues et generer un li par item
+	foreach($suggestions as $suggestion)
+	{		
+?>
+	<li><a href="#" onclick="afficherSuggestion('<?=$suggestion['terme']?>')"><?=$suggestion['terme']?></a></li>
+<?php
+}
+?>
 </ul>
