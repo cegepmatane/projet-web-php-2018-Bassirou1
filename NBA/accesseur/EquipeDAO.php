@@ -88,14 +88,14 @@
 		{
 			global $basededonnees;
 			$SQL_RECHERCHER_SUGGESTIONS = "SELECT nom as terme FROM equipe WHERE nom LIKE '%$recherche%'";
-			echo $SQL_RECHERCHER_SUGGESTIONS ;
+			//echo $SQL_RECHERCHER_SUGGESTIONS ;
 			$requetRechercherSuggestions = $basededonnees->prepare($SQL_RECHERCHER_SUGGESTIONS);
 			
 			//$requeteRechercherSuggestions->bindParam(':recherche', $recherche, PDO::PARAM_STR);
-			//$requetRechercherSuggestions->execute;
-			//$suggestions = $requetRechercherSuggestions->fetchAll();
+			$requetRechercherSuggestions->execute();
+			$suggestions = $requetRechercherSuggestions->fetchAll();
 			//print_r($suggestions);
-			//return $suggestions;
+			return $suggestions;
 			
 		}
 	}

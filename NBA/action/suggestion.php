@@ -17,7 +17,7 @@
 	include "../accesseur/EquipeDAO.php";
 	$equipeDAO = new EquipeDAO();
 	$suggestions = $equipeDAO->rechercherSuggestions($recherche);
-	print_r($suggestions);
+	//print_r($suggestions);
 ?>
 
 <ul id="suggestions">

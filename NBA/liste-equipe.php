@@ -15,6 +15,7 @@
 	else
 	{
 		$listeEquipe = $equipeDao->lireListe();
+		//print_r($listeEquipe);
 	}
 		
 
@@ -33,7 +34,7 @@
 		{
 			console.log('#recherche.onkeyup');
 			recherche = document.querySelector("#recherche").value;
-			parametre = 'recherche='+recherche;
+			parametre = "recherche=" + recherche;
 			console.log();
 			
 			// ETAPE 2 - REQUETE
@@ -80,12 +81,12 @@
 </head>
 <body>
 	<header>
-		<h1></h1>
+		<h1>NBA</h1>
 		<nav></nav>
 	</header>
 	
 	<section id="contenu">
-		<header><h2></h2></header>
+		<header><h2>Liste des equipes</h2></header>
 	
 	<section id="section-recherche">
 		<form method="post" action="" id="formulaire-recherche">
@@ -116,7 +117,7 @@
 		}
 		?>
 	<a href="inscription.php">S'inscrire</a> 
-	<a href="connexion.php"> Me connecter</a>
+	<a href="connexion.php"><?=_('Me connecter')?></a>
 	</section>
 	
 	<footer><span id="signature"></span></footer>
