@@ -21,6 +21,28 @@
 <body>
 	<header>
 		<h1>NBA</h1>
+		<script type="text/javascript" src="lib/Ajax.js"></script>
+		<script type="text/javascript">
+		
+		function recevoirCommentaire(reponse)
+		{
+			console.log(reponse.responseText);
+			
+		}
+		
+		function executerCommentaire(idEquipe)
+		{
+			var pseudo = document.getElementById("pseudo").value;
+			var commentaire = document.getElementById("unCommentaire").value;
+			console.log(pseudo, commentaire);
+			var ajax = new Ajax();
+					
+			ajax.executer('GET', 'http://142.44.162.203/nba/action/commentaires.php',
+						'pseudo=' + pseudo +  '&commentaire=' + commentaire + '&idEquipe=' + idEquipe,
+						recevoirCommentaire);
+		}
+		
+		</script>
 		<nav></nav>
 	</header>
 	
@@ -50,6 +72,25 @@
 				<?php
 				}
 			?>
+		</section>
+		
+		<section id="commentaire">
+			<h3>Commentaires</h3>
+			
+			<form method ="POST" action="#" id="champs-commentaire">
+				<input type="text" id="pseudo" name="pseudo" placeholder="Votre pseudo"/>
+				<textarea id="unCommentaire" name="commentaire"  placeholder="Votre commentaire" ></textarea>
+				
+				<?php
+				
+				$idEquipe = $_GET['equipe'];
+				echo "<input type='button' value='click' onclick='executerCommentaire($idEquipe)'/>";
+
+				?>
+			</form>
+
+			 
+			
 		</section>
 	
 		<nav><a href="liste-equipe.php">Revenir à la liste des equipes</a></nav>
