@@ -21,7 +21,7 @@
 	
 	<section id="contenu">
 		<header><h2>Effacer un joueur de l'equipe</h2></header>
-		<form method="post" action="action/action-effacer-joueur.php">
+		<form method="post" action="liste-equipe-admin.php">
 			
 			<input type="hidden" name="id" value="<?=$joueur['idjoueur']?>"/>
 
