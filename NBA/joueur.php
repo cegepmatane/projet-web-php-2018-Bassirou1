@@ -5,7 +5,7 @@
 	include "accesseur/JoueurDAO.php";
 	$joueurDao = new JoueurDAO();
 	$joueur = $joueurDao->lireJoueur($idJoueur);
-	print_r($joueur);
+	//print_r($joueur);
 ?>
 <!doctype html>
 <html lang="fr">
@@ -20,17 +20,17 @@
 	</header>
 	
 	<section id="contenu">
-		<header><h2>Joueur : <?=$joueur['nom']?></h2></header>
+		<header><h2>Joueur : <?=$joueur->nom?></h2></header>
 
-		<p><?=$joueur['biographie']?></p>
+		<p><?=$joueur->biographie?></p>
 		
-			<img src="<?php echo $joueur['photo'];?>"/>
-		
-		
+			<img src="<?php echo $joueur->photo;?>"/>
 		
 		
 		
-		<nav><a href="equipe.php?equipe=<?=$joueur['idEquipe']?>">Revenir a la liste des joueurs</a></nav>
+		
+		
+		<nav><a href="equipe.php?equipe=<?=$joueur->idEquipe?>">Revenir a la liste des joueurs</a></nav>
 	</section>
 	
 	

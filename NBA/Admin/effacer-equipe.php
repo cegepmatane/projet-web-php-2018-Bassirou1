@@ -22,9 +22,9 @@
 		<header><h2>Effacer une equipe</h2></header>
 		<form method="post" action="liste-equipe-admin.php">
 			
-			<input type="hidden" name="id" value="<?=$equipe['idEquipe']?>"/>
+			<input type="hidden" name="id" value="<?=$equipe->idEquipe?>"/>
 
-			Voulez-vous vraiment effacer <?=$equipe['nom']?> ?
+			Voulez-vous vraiment effacer <?=$equipe->nom?> ?
 
 			<input type="submit" name="confirmation-oui" value="Oui"/>
 			<input type="submit" name="confirmation-non" value="Non"/>

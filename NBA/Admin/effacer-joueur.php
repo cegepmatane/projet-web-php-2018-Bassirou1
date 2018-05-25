@@ -4,7 +4,7 @@
 	
 	include "../accesseur/JoueurDAO.php";
 	$joueurDao = new JoueurDAO();
-	$joueur = $joueurDao->lireJoueur($idJoueur);
+	$joueur = $joueurDao->effacerjoueur($idJoueur);
 	//print_r($joueur);
 ?>
 <!doctype html>
@@ -23,9 +23,9 @@
 		<header><h2>Effacer un joueur de l'equipe</h2></header>
 		<form method="post" action="liste-equipe-admin.php">
 			
-			<input type="hidden" name="id" value="<?=$joueur['idjoueur']?>"/>
+			<input type="hidden" name="id" value="<?=$joueur->idjoueur?>"/>
 
-			Voulez-vous vraiment effacer le joueur ? <?=$joueur['nom']?> ?
+			Voulez-vous vraiment effacer le joueur ? <?=$joueur->nom?> ?
 
 			<input type="submit" name="confirmation-oui" value="Oui"/>
 			<input type="submit" name="confirmation-non" value="Non"/>

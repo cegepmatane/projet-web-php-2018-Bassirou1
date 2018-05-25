@@ -9,6 +9,10 @@
 	include "accesseur/JoueurDAO.php";
 	$joueurDao = new JoueurDAO();
 	$listeJoueur = $joueurDao->listerJoueurDequipe($idEquipe);	
+	
+	include "accesseur/CommentairesDAO.php";
+	$commentaireDAO = new CommentairesDAO();
+	$listeCommentaires = $commentaireDAO->listerCommentaire($idEquipe);	
 
 ?>
 
@@ -27,15 +31,19 @@
 		function recevoirCommentaire(reponse)
 		{
 			console.log(reponse.responseText);
+			commentaires = document.getElementById("commentaires");
+			commentaires.innerHTML = commentaires.innerHTML + reponse.responseText;
+			
+			
 			
 		}
 		
 		function executerCommentaire(idEquipe)
 		{
-			var pseudo = document.getElementById("pseudo").value;
-			var commentaire = document.getElementById("unCommentaire").value;
+			 pseudo = document.getElementById("pseudo").value;
+			 commentaire = document.getElementById("unCommentaire").value;
 			console.log(pseudo, commentaire);
-			var ajax = new Ajax();
+			 ajax = new Ajax();
 					
 			ajax.executer('GET', 'http://142.44.162.203/nba/action/commentaires.php',
 						'pseudo=' + pseudo +  '&commentaire=' + commentaire + '&idEquipe=' + idEquipe,
@@ -47,14 +55,14 @@
 	</header>
 	
 	<section id="contenu">
-		<header><h2>Equipe : <?=$equipe['nom']?></h2></header>
+		<header><h2>Equipe : <?=$equipe->nom?></h2></header>
 		
 		<div>
-			Creation : <?=$equipe['creation']?>
+			Creation : <?=$equipe->creation?>
 		</div>
 		
 		<div>
-			Resume : <?=$equipe['resume']?>
+			Resume : <?=$equipe->resume?>
 		</div>
 			
 		<section>
@@ -65,8 +73,8 @@
 				{
 				?>
 				<div>
-					<h4><a href="joueur.php?joueur=<?=$joueur['idJoueur']?>"> Nom : <?=$joueur['nom']?></a></h4>
-					<p><?=$joueur['biographie']?></p>
+					<h4><a href="joueur.php?joueur=<?=$joueur->idJoueur?>"> Nom : <?=$joueur->nom?></a></h4>
+					<p><?=$joueur->biographie?></p>
 					
 				</div>
 				<?php
@@ -91,6 +99,19 @@
 
 			 
 			
+		</section>
+		<section id="commentaires">
+		<?php
+		foreach($listeCommentaires as $commentaires )
+		{
+		?>
+			<div>
+			<p><?=$commentaires->commentaire?></p>
+			<label><?=$commentaires->pseudo?></label>
+			</div>
+		<?php
+		}
+		?>
 		</section>
 	
 		<nav><a href="liste-equipe.php">Revenir à la liste des equipes</a></nav>

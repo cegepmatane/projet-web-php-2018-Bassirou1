@@ -106,8 +106,8 @@
 		?>
 		<div>
 			<div>
-				<a href="equipe.php?equipe=<?=$equipe['idEquipe']?>">
-					<?=$equipe['nom']?>
+				<a href="equipe.php?equipe=<?=$equipe->idEquipe?>">
+					<?=$equipe->nom?>
 				
 				</a>
 				
@@ -116,7 +116,7 @@
 		<?php
 		}
 		?>
-	<a href="inscription.php"><?=_(Sinscrire)?></a> 
+	<a href="inscription.php"><?=_('Sinscrire')?></a> 
 	<a href="connexion.php"><?=_('Me connecter')?></a>
 	</section>
 	

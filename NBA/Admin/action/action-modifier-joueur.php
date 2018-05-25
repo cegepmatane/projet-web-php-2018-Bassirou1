@@ -11,10 +11,10 @@ if(!empty($_POST['action-modifier-joueur']))
 	//Pour l'image
 	//echo "POST";
 	//print_r($_POST);
-	echo "FILES: ";
-	echo "<pre>";
-	print_r($_FILES);
-	echo "<pre>";
+	//echo "FILES: ";
+	//echo "<pre>";
+	//print_r($_FILES);
+	//echo "<pre>";
 	$repertoire_illustration = "/nba/illustration/";
 	$source = $_FILES["illustration"]["tmp_name"];
 	$destination = $_SERVER["DOCUMENT_ROOT"] . $repertoire_illustration . $_FILES["illustration"]["name"];

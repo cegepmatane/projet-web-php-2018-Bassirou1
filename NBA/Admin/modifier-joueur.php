@@ -25,17 +25,17 @@
 		
 			<div>
 				<label for="nom">Nom</label>
-				<input type="text" name="nom" id="nom" value="<?=$joueur['nom']?>"/>
+				<input type="text" name="nom" id="nom" value="<?=$joueur->nom?>"/>
 			</div>
 		
 			<div>
 				<label for="biographie">Biographie</label>
-				<textarea name="biographie" id="biographie"><?=$joueur['biographie']?></textarea>
+				<textarea name="biographie" id="biographie"><?=$joueur->biographie?></textarea>
 			</div>
 			
 			<div>
 				<label for="club">Club</label>
-				<input type="text" name="club" id="club" value="<?=$joueur['club']?>"/>
+				<input type="text" name="club" id="club" value="<?=$joueur->club?>"/>
 			</div>
 			
 			<div>

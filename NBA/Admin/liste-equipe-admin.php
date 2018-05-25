@@ -29,12 +29,12 @@
 	{
 	?>
 	<div>
-		<?=$equipe['nom']?>
-		<a href="modifier-equipe.php?equipe=<?=$equipe['idEquipe']?>">
+		<?=$equipe->nom?>
+		<a href="modifier-equipe.php?equipe=<?=$equipe->idEquipe?>">
 			
 		Modifier
 		</a>
-		<a href="effacer-equipe.php?equipe=<?=$equipe['idEquipe']?>">
+		<a href="effacer-equipe.php?equipe=<?=$equipe->idEquipe?>">
 		Effacer
 		</a>
 	</div>

@@ -9,6 +9,7 @@ if(!empty($_POST['action-effacer-joueur']))
 		$idJoueur = filter_var($_POST['id'], FILTER_SANITIZE_NUMBER_INT);
 		include_once "../../accesseur/JoueurDAO.php";
 		$joueurDao = new JoueurDAO();
+		
 		$joueurDao->effacerJoueur($idJoueur);
 	}
 	else
