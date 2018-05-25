@@ -64,7 +64,7 @@
 		<div>
 			Resume : <?=$equipe->resume?>
 		</div>
-			
+			<a href="http://142.44.162.203/nba/export/nba.php?equipe=<?=$idEquipe?>">PDF de l'equipe</a>
 		<section>
 			<h3>Liste des joueurs </h3>
 			<?php 
