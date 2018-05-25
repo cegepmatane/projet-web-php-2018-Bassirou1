@@ -77,10 +77,15 @@
 		
 		function sauvegarderPhoto($idJoueur,$nomImage)
 		{
-			$SAUVEGARDER_PHOTO = "UPDATE joueur SET photo ='".$nomImage."' WHERE idJoueur ='".$idJoueur."'";
+			$idEquipe = $joueur->idEquipe;
+			$nomImage = $joueur->nomImage;
+			//$SAUVEGARDER_PHOTO = "UPDATE joueur SET photo ='".$nomImage."' WHERE idJoueur ='".$idJoueur."'";
+			$SAUVEGARDER_PHOTO = "UPDATE joueur SET photo = :photo WHERE idJoueur = :idJoueur";
 			echo $SAUVEGARDER_PHOTO;
 			global $basededonnees;
 			$requeteSauvegarderPhoto = $basededonnees->prepare($SAUVEGARDER_PHOTO);
+			$requeteSauvegarderPhoto->bindParam(":idJoueur",$idJoueur);
+			$requeteSauvegarderPhoto->bindParam(":photo",$nomImage);
 		    $requeteSauvegarderPhoto->execute();
 			
 		}

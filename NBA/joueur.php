@@ -24,7 +24,7 @@
 
 		<p><?=$joueur->biographie?></p>
 		
-			<img src="<?php echo $joueur->photo;?>"/>
+			<img src="illustration/<?php echo $joueur->photo;?>"/>
 		
 		
 		
